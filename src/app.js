@@ -37,16 +37,17 @@ function crearPinta(Index) {
   }
   return arrPinta[Index];
 }
-
-window.onload = function() {
-  //write your code here
+//-----------------------------------------
+function cambiarCarta() {
   document.querySelector("#numero").innerHTML = crearNumero();
 
   let indexPinta = Math.floor(Math.random() * 4);
   let pinta = crearPinta(indexPinta);
   document.querySelector("#pinta1").innerHTML = pinta;
   document.querySelector("#pinta2").innerHTML = pinta;
-
+}
+//Botón
+window.onload = function() {
   document.querySelector("#btn").addEventListener("click", function() {
     let indexPinta = Math.floor(Math.random() * 4);
     let pinta = crearPinta(indexPinta);
@@ -54,14 +55,16 @@ window.onload = function() {
     document.querySelector("#pinta1").innerHTML = pinta;
     document.querySelector("#pinta2").innerHTML = pinta;
   });
+  //Cada 10 segundos
+  cambiarCarta();
+  setInterval(cambiarCarta, 10000);
 };
-
+//Solo al refrescar la pag
 // window.onload = function() {
-//   //write your code here
 //   document.querySelector("#numero").innerHTML = crearNumero();
+
 //   let indexPinta = Math.floor(Math.random() * 4);
 //   let pinta = crearPinta(indexPinta);
-
 //   document.querySelector("#pinta1").innerHTML = pinta;
 //   document.querySelector("#pinta2").innerHTML = pinta;
-// };
+// }
