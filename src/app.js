@@ -31,6 +31,9 @@ function crearPinta(Index) {
   if (arrPinta[Index] === "♥" || arrPinta[Index] === "♦") {
     document.querySelector("#pinta1").style.color = "red";
     document.querySelector("#pinta2").style.color = "red";
+  } else if (arrPinta[Index] === "♣" || arrPinta[Index] === "♠") {
+    document.querySelector("#pinta1").style.color = "black";
+    document.querySelector("#pinta2").style.color = "black";
   }
   return arrPinta[Index];
 }
@@ -38,9 +41,27 @@ function crearPinta(Index) {
 window.onload = function() {
   //write your code here
   document.querySelector("#numero").innerHTML = crearNumero();
+
   let indexPinta = Math.floor(Math.random() * 4);
   let pinta = crearPinta(indexPinta);
-
   document.querySelector("#pinta1").innerHTML = pinta;
   document.querySelector("#pinta2").innerHTML = pinta;
+
+  document.querySelector("#btn").addEventListener("click", function() {
+    let indexPinta = Math.floor(Math.random() * 4);
+    let pinta = crearPinta(indexPinta);
+    document.querySelector("#numero").innerHTML = crearNumero();
+    document.querySelector("#pinta1").innerHTML = pinta;
+    document.querySelector("#pinta2").innerHTML = pinta;
+  });
 };
+
+// window.onload = function() {
+//   //write your code here
+//   document.querySelector("#numero").innerHTML = crearNumero();
+//   let indexPinta = Math.floor(Math.random() * 4);
+//   let pinta = crearPinta(indexPinta);
+
+//   document.querySelector("#pinta1").innerHTML = pinta;
+//   document.querySelector("#pinta2").innerHTML = pinta;
+// };
